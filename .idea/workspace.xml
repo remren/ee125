@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec51bc45-a425-4a5f-833d-551bbce74e27" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lab0/part3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab0/part4.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab0/part5.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projs/proj2/part1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projs/proj2/part2-1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab0/part1.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab0/part1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab0/part2.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab0/part2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projs/proj3/matlab/proj3.asv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projs/proj3/python/proj3complete.py" beforeDir="false" afterPath="$PROJECT_DIR$/projs/proj3/python/proj3complete.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

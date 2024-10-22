@@ -77,46 +77,94 @@ cleansnap_analyze = analyzeSNAP(cleanSnap_uV, fs_hZ)
 #       Given: 6th order Butterworth highpass filter, w/cutoff frequency of 100Hz
 [b_iir, a_iir] = scipy.signal.butter(6,100/(Fs/2),'highpass')
 # Computes frequency response
-freq, h = scipy.signal.freqz(b_iir, a_iir) # default 512 points, or worN
+freq_iir, h_iir = scipy.signal.freqz(b_iir, a_iir) # default 512 points, or worN
 # Convert freq. to Hz
-freq_hz = freq * fs_hZ / (2 * np.pi)
+freq_hz_iir = freq_iir * fs_hZ / (2 * np.pi)
 # Get magnitude in decibels
-mag_dec = 20 * np.log10(np.abs(h[1:])) # took out first value, as it is zero.
-# print(f'min h:{np.where(h == 0)}, at 60hz: {20 * np.log10(np.abs(h[np.wher]))}')
-print(f"at 60hz of freq: {freq_hz}")
+mag_db_iir = 20 * np.log10(np.abs(h_iir[1:])) # took out first value, as it is zero.
 
 # Get group delay
-freq_grpdelay, grpdelay = scipy.signal.group_delay([b_iir, a_iir], fs=fs_hZ)
+freq_grpdelay_iir, grpdelay_iir = scipy.signal.group_delay([b_iir, a_iir], fs=fs_hZ)
+# Convert freq. to Hz??? Confused. I don't think this is necessary...
+# freq_grpdelay_hz_iir = freq_grpdelay_iir * fs_hZ / (2 * np.pi)
+
+# Plotting time!
+# plt.subplot(2, 1, 1)
+# plt.plot(freq_hz_iir[1:], mag_db_iir) # took out first value in mag_dec, likewise in freq_hz
+# plt.annotate(f'60 Hz',
+#              xy=(60 , mag_db_iir[4] + 12),
+#              xytext=(60 + 20, mag_db_iir[4]),
+#              arrowprops=dict(facecolor='r', headwidth=4, shrink=0.05),
+#              color='r')
+# plt.title('Mag. Response of 6th-order Butterworth Highpass, 20log_10|H(F)|')
+# plt.xlabel('Frequency (Hz)')
+# plt.ylabel('Magnitude (dB)')
+# plt.grid(True)
+# # plt.xlim(0, 500)  # Zoom in to appropriate frequency range
+# plt.ylim(-125, 5)  # Adjust magnitude range for clarity
+#
+# # Plot the group delay
+# plt.subplot(2, 1, 2)
+# plt.plot(freq_grpdelay_iir, grpdelay_iir)
+# plt.title('Group Delay')
+# plt.xlabel('Frequency (Hz)')
+# plt.ylabel('Group Delay (samples)')
+# plt.grid(True)
+# # plt.xlim(0, 500) # Zoom in to the same range for consistency
+#
+# # Show the plots
+# plt.tight_layout()
+# plt.show()
+
+# 5.) Design a FIR highpass
+
+# produces an array with (length), eg. 52 coefficients. NOT FILTER ORDER.
+# Filter order is coefficients - 1. So 52 coefficients -> 51st-order
+# cannot work with an even length, as an even length = even # of coefficients
+# which must have a zero response at Nyquist freq. Thus, we give length=53
+b_fir = scipy.signal.firwin(53, 100/(fs_hZ/2), pass_zero='highpass')
+
+# Plot Mag and GRPDELAY
+
+# Get frequency response of FIR
+freq_fir, h_fir = scipy.signal.freqz(b_fir) # default 512 points, or worN
+# Convert freq to Hz
+freq_hz_fir = freq_fir * fs_hZ / (2 * np.pi)
+# Get magnitude in dB
+mag_db_fir = 20 * np.log10(np.abs(h_fir))
+
+# Get group delay
+freq_grpdelay_fir, grpdelay_fir = scipy.signal.group_delay([b_fir, 1], fs=fs_hZ)
 
 # Plotting time!
 plt.subplot(2, 1, 1)
-plt.plot(freq_hz[1:], mag_dec) # took out first value in mag_dec, likewise in freq_hz
+plt.plot(freq_hz_fir, mag_db_fir)
 plt.annotate(f'60 Hz',
-             xy=(60 , mag_dec[4] + 12),
-             xytext=(60 + 20, mag_dec[4]),
+             xy=(60 , mag_db_fir[4] + 12),
+             xytext=(60 + 20, mag_db_fir[4]),
              arrowprops=dict(facecolor='r', headwidth=4, shrink=0.05),
              color='r')
-plt.title('Mag. Response of 6th-order Butterworth Highpass, 20log_10|H(F)|')
+plt.title('Mag. Response of 52nd-order FIR Highpass at 20log_10|H(F)|')
 plt.xlabel('Frequency (Hz)')
 plt.ylabel('Magnitude (dB)')
 plt.grid(True)
-# plt.xlim(0, 500)  # Zoom in to appropriate frequency range
-plt.ylim(-125, 5)  # Adjust magnitude range for clarity
+plt.xlim(0, 800)  # zoom freq
+plt.ylim(-20, 5)  # zoom mag
 
 # Plot the group delay
 plt.subplot(2, 1, 2)
-plt.plot(freq_grpdelay, grpdelay)
+plt.plot(freq_grpdelay_fir, grpdelay_fir)
 plt.title('Group Delay')
 plt.xlabel('Frequency (Hz)')
 plt.ylabel('Group Delay (samples)')
 plt.grid(True)
-# plt.xlim(0, 500) # Zoom in to the same range for consistency
+plt.xlim(0, 800) # zoom freq
+plt.ylim(20, 30)  # zoom mag
 
 # Show the plots
 plt.tight_layout()
 plt.show()
 
-# 5.) Design a FIR highpass
 # Discussion
 # Discussion
 # 6.) Explore computational efficiency
