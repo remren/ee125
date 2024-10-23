@@ -636,9 +636,11 @@ plt.annotate(f'ampl: {powerline_ffanalyze[0]:.2f} uV, '
 
 plt.ylabel("Signal Output in uV")
 plt.xlabel("t, in ms")
-plt.title("SNAP Signal and Filtered Comparison, with Phase Distortion Removed")
+plt.title("SNAP Signal and IIR Filtered Comparison, with Phase Distortion Removed")
 plt.grid()
-plt.legend(['cleanSnap, removed Phase Distortion', 'FIR Filtered', 'IIR Filtered'])
+plt.legend(['cleanSnap, IIR filtered and removed Phase Distortion',
+            'Baseline Contamination, IIR filtered and removed Phase Distortion',
+            'Powerline Contamination, IIR filtered and removed Phase Distortion'])
 
 plt.tight_layout()
 plt.show()
