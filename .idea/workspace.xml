@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec51bc45-a425-4a5f-833d-551bbce74e27" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projs/proj3/matlab/proj3.asv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projs/proj3/python/proj3complete.py" beforeDir="false" afterPath="$PROJECT_DIR$/projs/proj3/python/proj3complete.py" afterDir="false" />
-    </list>
+    <list default="true" id="ec51bc45-a425-4a5f-833d-551bbce74e27" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,15 +25,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Remy R/Documents/College Stuff/ee125&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Remy R/Documents/College Stuff/ee125",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Remy\Documents\ee125\projs\proj4\python" />
+      <recent name="C:\Users\Remy\Documents\ee125\projs\proj4\sampledata" />
+      <recent name="C:\Users\Remy\Documents\ee125\projs\proj4\examplecode" />
       <recent name="C:\Users\Remy R\Documents\College Stuff\ee125\projs" />
     </key>
   </component>
