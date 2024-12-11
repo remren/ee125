@@ -18,16 +18,16 @@ L = 1000;
 order = L - 1;
 Fc_norm = Fc * (2 / Fs);
 f_norm = linspace(0, Fs/2, length(H));
-h = fir1(order, Fc_norm, hamming(L));
-% h = fir1(order, Fc_norm, rectwin(L));
+% h = fir1(order, Fc_norm, hamming(L));
+h = fir1(order, Fc_norm, rectwin(L));
 H = freqz(h);
 
 % Cutoff Frequency and Passband Distortion
-% plot(f_norm, mag2db(abs(H)))
-plot(f_norm, abs(H))
+plot(f_norm, mag2db(abs(H)))
+% plot(f_norm, abs(H))
 xlabel("Frequency (Hz)");
-% ylabel("Magnitude (dB)");
-ylabel("Magnitude (Linear)");
+ylabel("Magnitude (dB)");
+% ylabel("Magnitude (Linear)");
 % title(['Magnitude Response for Hamming, L=' num2str(L)]);
 title(['Magnitude Response for Rectangular, L=' num2str(L)]);
 grid on
